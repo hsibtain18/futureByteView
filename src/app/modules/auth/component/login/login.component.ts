@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       this.loginService.Login(this.LoginForm.value)
       .then((val: any)=>{
         if(val?.accessToken){
+          sessionStorage.setItem('Data' ,JSON.stringify(val))
           this.Navigate()
         }
         

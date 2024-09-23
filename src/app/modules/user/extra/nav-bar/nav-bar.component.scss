@@ -1,0 +1,11 @@
+.eazio-header {
+  height: 50px;
+  background-color: white;
+  font-size: 12px;
+  img {
+    width: 25px; /* Set desired width */
+    height: 25px; /* Set desired height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; 
+  }
+}

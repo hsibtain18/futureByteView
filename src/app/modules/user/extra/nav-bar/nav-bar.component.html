@@ -1,1 +1,16 @@
-<p>nav-bar works!</p>
+<div class="d-flex justify-content-end eazio-header ">
+    <div class=" d-flex p-2">
+        <i class="fa fa-bell pt-2"></i>
+        <div class="d-flex px-3">
+            <span class="border rounded-circle pt-1 ">
+               <img [src]="DataObject.image" alt="" srcset="">
+            </span>
+            <span>
+               <p class="mb-0"> {{DataObject.firstName}} {{DataObject.lastName}} </p>
+                <p  class="mb-0"> {{DataObject.email}} </p>
+            </span>
+        </div>
+        <i class="fa fa-angle-down pt-3 pe-2"></i>
+
+    </div>
+</div>

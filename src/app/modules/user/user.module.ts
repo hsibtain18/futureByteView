@@ -8,6 +8,8 @@ import { ProductListComponent } from './component/product-list/product-list.comp
 import { ProductComponent } from './component/product/product.component';
 import { SideBarComponent } from './extra/side-bar/side-bar.component';
 import { NavBarComponent } from './extra/nav-bar/nav-bar.component';
+import { DataService } from './Services/data.service';
+import { SharedModule } from '../shared.module';
 
 
 @NgModule({
@@ -17,11 +19,16 @@ import { NavBarComponent } from './extra/nav-bar/nav-bar.component';
     ProductListComponent,
     ProductComponent,
     SideBarComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
+
+  ],
+  providers:[
+    DataService
   ]
 })
 export class UserModule { }

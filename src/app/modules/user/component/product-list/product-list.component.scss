@@ -1,0 +1,33 @@
+.pill {
+  padding: 8px;
+  background-color: rgba(174, 174, 236, 0.55);
+  font-size: 12px;
+  border-radius: 16px;
+  margin-left: 10px;
+}
+.input-icon {
+  position: relative;
+  .fa {
+    position: absolute;
+    transform: translateY(-50%);
+    color: #ccc;
+    left: 10px !important;
+    top: 50% !important;
+  }
+  input {
+    padding-left: 30px; /* Add padding to prevent text overlap with the icon */
+  }
+}
+.productListHeader {
+  tr {
+    th {
+      background-color: rgb(255 199 199 / 17%);
+      border: none !important;
+      font-weight: 400;
+    }
+    td {
+      border: none !important;
+      height: 20px;
+    }
+  }
+}
