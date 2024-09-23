@@ -21,6 +21,7 @@ export class ProductListComponent implements OnInit {
         } else {
           this.filteredData = val.slice(0, 10);
         }
+        this.page = 1
         this.originalData = Object.assign([], val);
       }
     });
@@ -41,5 +42,8 @@ export class ProductListComponent implements OnInit {
      const itemIndex = this.originalData.findIndex((val: any)=> val.Id == ID)
      this.originalData.splice(itemIndex,1)
      this.dataService.DataProductList.next(this.originalData)
+  }
+  edit(product: any){
+this.dataService.EditProduct.next(product)
   }
 }

@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
   public DataProductList: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public EditProduct: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public CategoryList = [
     { ID: 0, Name: 'Category 1' },
     { ID: 1, Name: 'Category 2' },
@@ -25,10 +26,17 @@ export class DataService {
     const currentList = this.DataProductList.getValue() || [];
     const newProduct = {
       Id: this.lastId,
-      Name:newProductData.Name+'-'+this.lastId,
       ...newProductData,
     };
+    newProduct.Id = this.lastId,
+    newProduct.Name = newProductData.Name + '-' + this.lastId;
     const updatedList = [...currentList, newProduct];
     this.DataProductList.next(updatedList);
+  }
+  editProduct(product: any) {
+    const currentList = this.DataProductList.getValue();
+    let index = currentList.findIndex((val: any) => product.Id == val.Id);
+    currentList[index] = product;
+    this.DataProductList.next(currentList);
   }
 }

@@ -28,7 +28,7 @@
             <td>{{ product.qty }}</td>
             <td>{{ product.Price | currency }}</td>
             <td class="Actions">
-              <i class="fa fa-edit"></i>
+              <i class="fa fa-edit" (click)="edit(product)" ></i>
               <i class="fa fa-trash ms-3" (click)="delete(product.Id)" ></i>
             </td>
           </tr>
