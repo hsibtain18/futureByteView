@@ -16,7 +16,6 @@ import { LoginService } from './Services/login.service';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    HttpClientModule,
     SharedModule
   ],
   providers:[

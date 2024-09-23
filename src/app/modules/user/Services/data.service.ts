@@ -1,10 +1,15 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  url = 'https://dummyjson.com/auth/me';
+  http = inject(HttpClient)
+  router = inject(Router)
   public DataProductList: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public EditProduct: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public CategoryList = [
@@ -32,11 +37,28 @@ export class DataService {
     newProduct.Name = newProductData.Name + '-' + this.lastId;
     const updatedList = [...currentList, newProduct];
     this.DataProductList.next(updatedList);
+    this.checkToken()
   }
   editProduct(product: any) {
     const currentList = this.DataProductList.getValue();
     let index = currentList.findIndex((val: any) => product.Id == val.Id);
     currentList[index] = product;
     this.DataProductList.next(currentList);
+  }
+
+  checkToken(){
+    this.http.get(this.url,{})
+    .toPromise()
+    .then((val: any)=>{
+      console.log(val);
+      
+    })
+    .catch((err: any)=>{
+      if(err?.status){
+        sessionStorage.clear();
+        this.router.navigate(['/'])
+      }
+      
+    })
   }
 }
