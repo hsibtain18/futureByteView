@@ -17,13 +17,32 @@ export class ProductComponent implements OnInit {
       Name: new FormControl('', [Validators.required]),
       Category: new FormControl('2', [Validators.required]),
       qty: new FormControl('3', [Validators.required]),
-      Id: new FormControl(0, [Validators.required]),
       Price: new FormControl('20', [Validators.required]),
     });
   }
   addProduct() {
     if(this.productForm.valid){
       this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.dataService.addProduct(this.productForm.value)
+      this.productForm.reset()
+    
     }
   }
 }

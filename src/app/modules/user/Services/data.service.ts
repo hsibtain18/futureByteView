@@ -24,7 +24,8 @@ export class DataService {
     this.lastId++;
     const currentList = this.DataProductList.getValue() || [];
     const newProduct = {
-      id: this.lastId,
+      Id: this.lastId,
+      Name:newProductData.Name+'-'+this.lastId,
       ...newProductData,
     };
     const updatedList = [...currentList, newProduct];

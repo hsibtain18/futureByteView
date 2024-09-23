@@ -9,16 +9,37 @@ import { DataService } from '../../Services/data.service';
 export class ProductListComponent implements OnInit {
   length = 0;
   originalData = [];
-  filteredData : any;
+  filteredData: any;
   dataService = inject(DataService);
-
+  page = 1;
   ngOnInit(): void {
     this.dataService.DataProductList.subscribe((val: any) => {
-    if(val?.length){
-      this.length = val.length
-      this.filteredData = val
-      this.originalData = Object.assign({},val)
-    }
+      if (val?.length) {
+        this.length = val.length;
+        if (this.length <= 10) {
+          this.filteredData = val;
+        } else {
+          this.filteredData = val.slice(0, 10);
+        }
+        this.originalData = Object.assign([], val);
+      }
     });
+  }
+  paginate(paginationNumber: any) {
+    const perPage = 10;
+    const totalItems = this.originalData.length;
+  
+    if (paginationNumber > 0 && paginationNumber <= Math.ceil(totalItems / perPage)) {
+      const startIndex = (paginationNumber - 1) * perPage;
+      const endIndex = startIndex + perPage;
+      
+      // Slice the data based on the calculated indexes
+      this.filteredData = this.originalData.slice(startIndex, endIndex);
+    }
+  }
+  delete(ID:  number){
+     const itemIndex = this.originalData.findIndex((val: any)=> val.Id == ID)
+     this.originalData.splice(itemIndex,1)
+     this.dataService.DataProductList.next(this.originalData)
   }
 }

@@ -2,4 +2,8 @@
     .section-1{
         height: 300px;
     }
+    .section-2 {
+        max-height: 500px;
+        overflow-y: scroll;
+    }
 }

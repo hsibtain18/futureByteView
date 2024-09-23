@@ -25,7 +25,7 @@
     </div>
     <div class="row mt-3">
         <div class="d-flex justify-content-end">
-            <button class="btn" (click)="addProduct()" >
+            <button class="btn" [disabled]="!productForm.valid"  (click)="addProduct()" >
                 Add Product
             </button>
         </div>

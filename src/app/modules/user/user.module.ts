@@ -10,6 +10,7 @@ import { SideBarComponent } from './extra/side-bar/side-bar.component';
 import { NavBarComponent } from './extra/nav-bar/nav-bar.component';
 import { DataService } from './Services/data.service';
 import { SharedModule } from '../shared.module';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -24,8 +25,8 @@ import { SharedModule } from '../shared.module';
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
-
+    SharedModule,
+    NgbPaginationModule
   ],
   providers:[
     DataService

@@ -18,7 +18,7 @@
     padding-left: 30px; /* Add padding to prevent text overlap with the icon */
   }
 }
-.productListHeader {
+.table {
   tr {
     th {
       background-color: rgb(255 199 199 / 17%);
@@ -26,8 +26,7 @@
       font-weight: 400;
     }
     td {
-      border: none !important;
-      height: 20px;
+      line-height: 3;
     }
   }
 }
