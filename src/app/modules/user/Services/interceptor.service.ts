@@ -22,12 +22,9 @@ export class AuthInterceptor implements HttpInterceptor {
           },
         });
 
-        // Pass the cloned request to the next handler
         return next.handle(clonedRequest);
       }
     }
-
-    // If no token, pass the request as is
     return next.handle(req);
   }
 }
