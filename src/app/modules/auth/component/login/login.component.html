@@ -1,0 +1,64 @@
+<div class="background">
+  <auth-nav-bar></auth-nav-bar>
+  <div class="content d-flex justify-content-center align-items-end">
+    <div class="login-card px-3 pt-3">
+      <h2>Eazio</h2>
+      <h5>Login In To Your Account</h5>
+
+      <p>So, do you come here often?.. Lets get started</p>
+      <form [formGroup]="LoginForm" (submit)="login()" >
+        <div class="col-12 form-group input-icon">
+          <label for="username">Email</label>
+          <i class="fas fa-user"></i>
+          <input
+            class="form-control"
+            type="email"
+            formControlName="username"
+            name="username"
+            id="username"
+          />
+        </div>
+        <div class="col-12 form-group input-icon mt-3">
+          <label for="password">Password</label>
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-eye" (click)="passwordView = !passwordView"></i>
+          <input
+            class="form-control"
+            [type]="passwordView ? 'password' : 'text'"
+            formControlName="password"
+            name="password"
+            id="password"
+          />
+        </div>
+
+        <div class="col-12 mt-3">
+          <div class="d-flex justify-content-between">
+            <span>
+              <input type="checkbox" name="" id="" />
+              Remember Me
+            </span>
+            <span>
+              <small>
+                <a> Oops, Forgot Password?</a>
+              </small>
+            </span>
+          </div>
+        </div>
+        <div class="col-12 mt-3">
+          <button  type="submit" class="btn" [disabled]="!LoginForm.valid">
+            Lets Go To Eazio
+          </button>
+        </div>
+        <div class="col-12 mt-3 text-center">
+          <p>Don't have an account? <a href="">Sign up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="d-flex justify-content-between">
+      <p>Copyright 2023 FZ LLC. All Right Reserved</p>
+      <p>Privacy Policy</p>
+    </div>
+  </div>
+</div>
