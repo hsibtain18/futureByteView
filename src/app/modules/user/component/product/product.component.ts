@@ -31,6 +31,7 @@ export class ProductComponent implements OnInit {
   addProduct() {
     if (this.productForm.valid) {
       this.dataService.addProduct(this.productForm.value);
+      // uncomment to test pagination
       // this.dataService.addProduct(this.productForm.value);
       // this.dataService.addProduct(this.productForm.value);
       // this.dataService.addProduct(this.productForm.value);
